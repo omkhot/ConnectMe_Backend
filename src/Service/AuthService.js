@@ -11,10 +11,10 @@ async function manualLoginServ(userCredentials) {
 
     const user = await User.findOne({email: userCredentials.email});
     console.log("user from db:", user);
-    if(!user) {
-        console.log("User not found");
-        throw new NotFoundError([userCredentials.email], "user");
-    }
+    // if(!user) {
+    //     console.log("User not found");
+    //     throw new NotFoundError([userCredentials.email], "user");
+    // }
 
     try {
         const isPasswordValid = await bcrypt.compare(userCredentials.password, user.password);
