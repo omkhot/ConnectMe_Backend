@@ -20,7 +20,7 @@ async function authUser(req, res) {
             });
 
             // Redirect to React page — React will read from the cookie
-            return res.redirect("http://localhost:5173/completeProfile");
+            return res.redirect("https://connect-me-frontend-6srt.vercel.app/completeProfile");
 
         }
 
@@ -33,7 +33,7 @@ async function authUser(req, res) {
             secure: false, // Set to true in production with HTTPS
         });
 
-        return res.redirect("http://localhost:5173/home");
+        return res.redirect("https://connect-me-frontend-6srt.vercel.app/home");
 
     } catch (error) {
         console.error("Error during authentication:", error);
