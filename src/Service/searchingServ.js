@@ -7,10 +7,12 @@ async function searchUserServ(userDetailsQuery) {
         const user = await searchUserRepo(userDetailsQuery);
         if(user.length === 0){
             // throw new NotFoundError([userDetailsQuery], "user");
+            throw new Error("User with the given query not found");
         }
         return user;
     } catch (error) {
         console.error("Error in searchUserServ:", error);
+        throw error;
         // if (error instanceof NotFoundError) {
         //     throw error;
         // }

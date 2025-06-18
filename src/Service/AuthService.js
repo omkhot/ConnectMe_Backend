@@ -11,6 +11,12 @@ async function manualLoginServ(userCredentials) {
 
     const user = await User.findOne({email: userCredentials.email});
     console.log("user from db:", user);
+
+    if(!user) {
+        console.log("User not found");
+        throw new Error("User not found");
+    }
+
     // if(!user) {
     //     console.log("User not found");
     //     throw new NotFoundError([userCredentials.email], "user");
@@ -32,6 +38,7 @@ async function manualLoginServ(userCredentials) {
         }
     } catch (error) {
         console.error("Error during manual login:", error);
+        if(error instanceof Error) throw error;
         if(error instanceof BadRequestError) throw error;
         throw new InternalServerError();
     }
