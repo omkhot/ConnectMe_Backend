@@ -1,7 +1,7 @@
 import { JWT_SECRET } from "../Config/serverConfig.js";
 import User from "../Schema/userSchema.js";
 import BadRequestError from "../Utils/badReqError.js";
-import NotFoundError from "../Utils/notFoundError.js";
+// import NotFoundError from "../Utils/notFoundError.js";
 import InternalServerError from "../Utils/internalServerError.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
