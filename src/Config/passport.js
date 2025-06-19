@@ -9,7 +9,7 @@ passport.use(
         {
             clientID: GOOGLE_CLIENT_ID,
             clientSecret: GOOGLE_CLIENT_SECRET,
-            callbackURL: "https://connect-me-frontend-6srt.vercel.app/auth/google/callback",
+            callbackURL: "https://connectme-backend-2-h4co.onrender.com/auth/google/callback",
         }, 
     async (accessToken, refreshToken, profile, done) => {
 
