@@ -14,8 +14,8 @@ async function authUser(req, res) {
 
             res.cookie('temp_token', tempToken, {
                 httpOnly: true,
-                sameSite: "Lax", // or "None" with HTTPS
-                secure: false,   // set to true in production
+                sameSite: "None", // or "None" with HTTPS
+                secure: true,   // set to true in production
                 maxAge: 15 * 60 * 1000,
             });
 
@@ -29,8 +29,8 @@ async function authUser(req, res) {
 
         res.cookie("token", token, {
             httpOnly: true,
-            sameSite: "Lax",
-            secure: false, // Set to true in production with HTTPS
+            sameSite: "None",
+            secure: true, // Set to true in production with HTTPS
         });
 
         return res.redirect("https://connect-me-frontend-6srt.vercel.app/home");
