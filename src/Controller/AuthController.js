@@ -68,9 +68,7 @@ async function getCurrentUser(req, res) {
 
         if(user){
             console.log("Current user is:", user);
-        }
-
-        
+        }        
 
         if (!user) return res.status(404).json({ 
             message: "User not found" 
@@ -98,7 +96,7 @@ async function manualLogin(req, res) {
         res.cookie("token", response.token, { 
             httpOnly: true,
             secure: true,
-            sameSite: "strict",
+            sameSite: "None",
             maxAge : 7 * 24 * 60 * 60 * 1000 // 7 days
         });
         return res.status(200).json({
@@ -133,8 +131,8 @@ async function createNewUserManually(req,res){
 
     res.cookie('temp_token', tempToken, {
         httpOnly: true,
-        sameSite: "Lax", // or "None" with HTTPS
-        secure: false,   // set to true in production
+        sameSite: "None", // or "None" with HTTPS
+        secure: true,   // set to true in production
         maxAge: 15 * 60 * 1000,
     });
 
